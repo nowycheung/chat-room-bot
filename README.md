@@ -14,10 +14,10 @@ This project was built with [Create React App](https://github.com/facebookincuba
 * Append the BOT's ID by clicking @id in the BOT List.
 
 
-## Improvement
+## Need To Be Improved
 * Unit test.
 * Better reply by random answers.
-* Save converstation in LocalStorage.
+* Save converstation in browser (LocalStorage).
 * Logout.
 * Decouple the botHandler from InputArea.
 * BOT should be "away" or "offline" after the conversation ends.
