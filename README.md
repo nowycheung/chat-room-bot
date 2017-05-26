@@ -1,6 +1,7 @@
 # Chat Room with BOT Example
 
-This is a chat room with BOT that you can talk with.
+![Chat Room](https://github.com/nowycheung/chat-room-bot/raw/master/images/screenshot.png)
+This is a chat room with very simple BOT that you can talk with.
 This project was built with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Features
