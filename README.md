@@ -1,6 +1,6 @@
 # Chat Room with BOT Example
 
-This is a [chat room](https://chat-room-bot.herokuapp.com/) with very simple BOT that you can talk with.
+This is a chat room with very simple BOT that you can talk with.
 This project was built with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ![Chat Room](https://github.com/nowycheung/chat-room-bot/raw/master/images/screenshot.png)
@@ -16,6 +16,7 @@ This project was built with [Create React App](https://github.com/facebookincuba
 
 ## Need To Be Improved
 * Unit test.
+* Deploy to Heroku.
 * Better reply by random answers.
 * Save converstation in browser (LocalStorage).
 * Logout.
