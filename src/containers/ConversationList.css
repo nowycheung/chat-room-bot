@@ -1,0 +1,8 @@
+.conversation-panel {
+    height: 60vh;
+    overflow: scroll;
+}
+
+.my-message {
+    text-align: right;
+}
