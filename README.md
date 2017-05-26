@@ -15,6 +15,7 @@ This project was built with [Create React App](https://github.com/facebookincuba
 
 
 ## Improvement
+* Unit test.
 * Better reply by random answers.
 * Save converstation in LocalStorage.
 * Logout.
