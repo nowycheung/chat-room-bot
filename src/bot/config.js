@@ -46,10 +46,14 @@ export const BOT_NAMES = [{
 export const RANDOM_TALK = [
     "Hi all",
     "Anyone here?",
-    "Hej hej",
-    "What was the biggest life change you've gone through?"
+    "What would you be doing if you were not here right now?",
+    "What are you doing now?",
+    "Long time no see {userName}",
+    "What was the biggest life change you've gone through?",
+    "Welcome {userName} !",
+    "How are you {userName} ?"
 ];
 
 export const REPLY_TIMEOUT = 1000;
 export const REFRESH_BOT_INTERVAL = 30 * 1000;
-export const RANDOM_TALK_INTERVAL = 5 * 1000;
+export const RANDOM_TALK_INTERVAL = 10 * 1000;

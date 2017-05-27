@@ -29,6 +29,7 @@ export default connect(
         activeBotReply: PropTypes.func.isRequired
     }
 
+    // TODO: Decouple this from Contact List
     botHandler = (message) => {
         const { setActiveBot, activeBotReply, chatRoomState, profileState } = this.props;
         const { activeBot} = chatRoomState;

@@ -13,7 +13,8 @@ import './ContactList.css';
 
 export default connect(
     (state) => ({
-        botList: state.profile.botList
+        botList: state.profile.botList,
+        userName: state.profile.name
     }),
     (dispatch) => ({
         refreshBot: bind(refreshBot, dispatch),
@@ -23,21 +24,25 @@ export default connect(
 )(class ContactList extends Component {
     static propTypes = {
         botList: PropTypes.array.isRequired,
+        userName: PropTypes.string.isRequired,
         refreshBot: PropTypes.func.isRequired,
         appendMessage: PropTypes.func.isRequired,
         sendMessage: PropTypes.func.isRequired
     }
 
     componentDidMount() {
+        // TODO: Decouple this from Contact List
         setInterval(() => {
             this.props.refreshBot();
         }, REFRESH_BOT_INTERVAL);
 
+        // TODO: Decouple this from Contact List
         setInterval(() => {
-            const { sender , message} = getRandomTalkBot(this.props.botList);
+            const { userName, botList, sendMessage } = this.props;
+            const { sender , message} = getRandomTalkBot(botList);
 
             if (sender && sender) {
-                this.props.sendMessage(sender, message);
+                sendMessage(sender, message.replace(/{userName}/g, userName), true);
             }
         }, RANDOM_TALK_INTERVAL);
     }

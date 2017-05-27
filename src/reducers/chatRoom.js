@@ -24,12 +24,13 @@ export default (state = initialState, action = {}) => {
                 lastInput: `${state.lastInput} ${action.message}`
             }
         case NEW_MESSAGE:
-            const { sender, message } = action;
+            const { sender, message, isBot } = action;
             const lastMessage = {sender, message};
+
             return {
                 ...state,
                 lastMessage,
-                lastInput: "",
+                lastInput: isBot ? state.lastInput : "",    // If bot, don't clean the input.
                 conversationList: state.conversationList.concat(lastMessage)
             }
         case SET_ACTIVE_BOT:
@@ -83,10 +84,11 @@ export const appendMessage = (message) => {
     };
 };
 
-export const sendMessage = (sender, message) => {
+export const sendMessage = (sender, message, isBot) => {
     return {
         sender,
         message,
+        isBot,
         type: NEW_MESSAGE
     };
 };
