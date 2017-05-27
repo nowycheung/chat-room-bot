@@ -43,5 +43,13 @@ export const BOT_NAMES = [{
     id: "@douglasM"
 }];
 
+export const RANDOM_TALK = [
+    "Hi all",
+    "Anyone here?",
+    "Hej hej",
+    "What was the biggest life change you've gone through?"
+];
+
 export const REPLY_TIMEOUT = 1000;
 export const REFRESH_BOT_INTERVAL = 30 * 1000;
+export const RANDOM_TALK_INTERVAL = 5 * 1000;

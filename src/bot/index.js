@@ -1,4 +1,8 @@
-import { BOT_ANSWERS, BOT_NAMES } from "./config.js";
+import { BOT_ANSWERS, BOT_NAMES, RANDOM_TALK } from "./config.js";
+
+const randomNumber = (min,max) => {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 /**
     Return "online", "away" or "playing".
@@ -31,4 +35,20 @@ export const generateBot = () => {
         // Put the online bot on the top
         return status === "online" ? 0 : 1;
     })
+}
+
+export const getRandomTalkBot =(botList) => {
+    const onlineBotIndex = botList.map((bot, index) => bot.status === "online" ? index : false);
+
+    if (onlineBotIndex.length > 0) {
+        const selectedBotIndex = randomNumber(0, onlineBotIndex.length - 1);
+        const selectedTalkIndex = randomNumber(0, RANDOM_TALK.length - 1);
+        const sender = botList[selectedBotIndex].fullName;
+        const message = RANDOM_TALK[selectedTalkIndex];
+
+        return {
+            sender,
+            message
+        };
+    }
 }

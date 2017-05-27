@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators as bind } from 'redux';
 import { Panel } from 'react-bootstrap';
 import { refreshBot } from '../reducers/profile';
-import { appendMessage } from '../reducers/chatRoom';
-import { REFRESH_BOT_INTERVAL } from "../bot/config";
+import { appendMessage, sendMessage } from '../reducers/chatRoom';
+import { REFRESH_BOT_INTERVAL, RANDOM_TALK_INTERVAL } from "../bot/config";
+import { getRandomTalkBot } from "../bot";
 import Contact from "../components/Contact";
 
 import './ContactList.css';
@@ -17,16 +18,28 @@ export default connect(
     (dispatch) => ({
         refreshBot: bind(refreshBot, dispatch),
         appendMessage: bind(appendMessage, dispatch),
+        sendMessage: bind(sendMessage, dispatch)
     })
 )(class ContactList extends Component {
     static propTypes = {
         botList: PropTypes.array.isRequired,
         refreshBot: PropTypes.func.isRequired,
-        appendMessage: PropTypes.func.isRequired
+        appendMessage: PropTypes.func.isRequired,
+        sendMessage: PropTypes.func.isRequired
     }
 
     componentDidMount() {
-        setInterval(this.props.refreshBot, REFRESH_BOT_INTERVAL);
+        setInterval(() => {
+            this.props.refreshBot();
+        }, REFRESH_BOT_INTERVAL);
+
+        setInterval(() => {
+            const { sender , message} = getRandomTalkBot(this.props.botList);
+
+            if (sender && sender) {
+                this.props.sendMessage(sender, message);
+            }
+        }, RANDOM_TALK_INTERVAL);
     }
 
     render() {

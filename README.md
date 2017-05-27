@@ -8,7 +8,7 @@ This project was built with [Create React App](https://github.com/facebookincuba
 ## Features
 * Login with name.
 * List of Bot with unique name and avatar.
-* The BOT list will be auto refreshed.
+* The BOT list will be auto refreshed, and talk randomly.
 * Chat with BOT by includes @id in the message.
 * Random indicator with probality, "online", "away" and "playing" in BOT list.
 * Append the BOT's ID by clicking @id in the BOT List.
